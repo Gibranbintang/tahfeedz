@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hukum Tajwid</title>
+  <link rel="stylesheet" href="css/tajwidstyle.css">
+</head>
+<body>
+  <h1>Hukum Tajwid</h1>
+  <div class="container">
+    <div class="card" onclick="openModal('Idzhar', 'Idzhar adalah hukum bacaan nun sukun atau tanwin yang bertemu dengan salah satu huruf halqi (ا، هـ، ح، خ، ع، غ), maka dibaca jelas.')">
+      <div class="card-title">Idzhar</div>
+      <div class="card-desc">Dibaca jelas</div>
+    </div>
+    <div class="card" onclick="openModal('Ikhfa', 'Ikhfa terjadi ketika nun sukun atau tanwin bertemu dengan salah satu dari 15 huruf, dibaca samar antara jelas dan dengung.')">
+      <div class="card-title">Ikhfa</div>
+      <div class="card-desc">Dibaca samar</div>
+    </div>
+    <div class="card" onclick="openModal('Iqlab', 'Iqlab adalah hukum ketika nun sukun atau tanwin bertemu dengan huruf ب, maka nun diubah menjadi mim dan dibaca dengan dengung.')">
+      <div class="card-title">Iqlab</div>
+      <div class="card-desc">Menjadi mim & dengung</div>
+    </div>
+    <div class="card" onclick="openModal('Idgham', 'Idgham terjadi ketika nun sukun atau tanwin bertemu dengan huruf idgham, maka nun dilebur ke dalam huruf berikutnya.')">
+      <div class="card-title">Idgham</div>
+      <div class="card-desc">Dilebur ke huruf berikutnya</div>
+    </div>
+    <div class="card" onclick="openModal('Idgham Bighunnah', 'Idgham Bighunnah terjadi ketika nun sukun atau tanwin bertemu dengan huruf ي، ن، م، و dan dibaca dengan dengung.')">
+      <div class="card-title">Idgham Bighunnah</div>
+      <div class="card-desc">Dengan dengung</div>
+    </div>
+    <div class="card" onclick="openModal('Idgham Bilaghunnah', 'Idgham Bilaghunnah terjadi ketika nun sukun atau tanwin bertemu dengan huruf ل dan ر, dibaca tanpa dengung.')">
+      <div class="card-title">Idgham Bilaghunnah</div>
+      <div class="card-desc">Tanpa dengung</div>
+    </div>
+    <div class="card" onclick="openModal('Qalqalah', 'Qalqalah adalah hukum bacaan memantul saat membaca huruf ق، ط، ب، ج، د dalam keadaan sukun.')">
+      <div class="card-title">Qalqalah</div>
+      <div class="card-desc">Pantulan suara</div>
+    </div>
+    <div class="card" onclick="openModal('Mad', 'Mad adalah hukum bacaan panjang karena sebab tertentu seperti huruf mad atau huruf hamzah/sukun setelahnya.')">
+      <div class="card-title">Mad</div>
+      <div class="card-desc">Bacaan panjang</div>
+    </div>
+  </div>
+
+  <!-- Modal Box -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, text) {
+      document.getElementById("modal-title").textContent = title;
+      document.getElementById("modal-text").textContent = text;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
