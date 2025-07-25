@@ -115,32 +115,6 @@ header {
   font-size: 1rem;
   color: #d3d3d3;
 }
-.adab-quran {
-  background: linear-gradient(to bottom right, #e9f1f7, #d4e4f0);
-  padding: 30px;
-  border-radius: 12px;
-  color: #333;
-  max-width: 700px;
-  margin: 40px auto;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-}
-
-.adab-quran h2 {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #1c3b5e;
-}
-
-.adab-quran ul {
-  list-style: disc;
-  padding-left: 20px;
-  line-height: 1.7;
-}
-
-.adab-quran li {
-  margin-bottom: 10px;
-}
 
 /* Reset & Font */
 * {
@@ -237,4 +211,58 @@ body {
   .navbar nav {
     margin-top: 0.5rem;
   }
+}
+/* Tentang Kami */
+.container img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+}
+
+h2 {
+  color: #00cc88;
+  margin-bottom: 20px;
+}
+
+/* Kontak */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 5px;
+  background-color: #fff;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #009966;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #007755;
+}
+
+/* Footer */
+footer {
+ background-color: #021c25;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
 }

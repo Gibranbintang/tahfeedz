@@ -62,115 +62,30 @@
   transform: scale(1.1);
   border-radius: 4px;
 }
-/*kontak css
-/* Reset dasar */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
 
-body {
-  background-color: #f0f0f0;
-  color: #222;
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-header {
-  background-color: #004d00;
-  color: white;
-  padding: 15px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-header img {
-  height: 40px;
-  border-radius: 50%;
-}
-
-nav a {
-  margin-left: 25px;
-  font-weight: bold;
-}
-
-nav a.active {
-  text-decoration: underline;
-  color: #00ff99;
-}
-
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #e6e6e6;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Tentang Kami */
-.container img {
-  width: 100%;
-  max-width: 350px;
+.adab-quran {
+  background: linear-gradient(to bottom right, #e9f1f7, #d4e4f0);
+  padding: 30px;
   border-radius: 12px;
+  color: #333;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
-h2 {
-  color: #00cc88;
-  margin-bottom: 20px;
-}
-
-/* Kontak */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-input, textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-top: 5px;
-  background-color: #fff;
-}
-
-button {
-  margin-top: 20px;
-  background-color: #009966;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: #007755;
-}
-
-/* Footer */
-footer {
+.adab-quran h2 {
   text-align: center;
-  background-color: #001a00;
-  color: white;
-  padding: 15px;
-  margin-top: 50px;
-  font-size: 14px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1c3b5e;
+}
+
+.adab-quran ul {
+  list-style: disc;
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+.adab-quran li {
+  margin-bottom: 10px;
 }
