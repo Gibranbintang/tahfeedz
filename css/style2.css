@@ -62,3 +62,115 @@
   transform: scale(1.1);
   border-radius: 4px;
 }
+/*kontak css
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  color: #222;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background-color: #004d00;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header img {
+  height: 40px;
+  border-radius: 50%;
+}
+
+nav a {
+  margin-left: 25px;
+  font-weight: bold;
+}
+
+nav a.active {
+  text-decoration: underline;
+  color: #00ff99;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Tentang Kami */
+.container img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+}
+
+h2 {
+  color: #00cc88;
+  margin-bottom: 20px;
+}
+
+/* Kontak */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 5px;
+  background-color: #fff;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #009966;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #007755;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #001a00;
+  color: white;
+  padding: 15px;
+  margin-top: 50px;
+  font-size: 14px;
+}
