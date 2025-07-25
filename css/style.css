@@ -11,7 +11,7 @@ body {
 }
 
 header {
-  background-color: #0c3c5c;
+  background-color: #ccd0d3;
   padding: 1rem 2rem;
 }
 
@@ -160,7 +160,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #021c25;
+  background-color: #0c3d06;
 
 }
 .navbar .logo {
