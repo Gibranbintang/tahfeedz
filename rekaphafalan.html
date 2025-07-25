@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cek Hafalan - TiQ</title>
+  <link rel="stylesheet" href="css/style2.css" />
+</head>
+<body>
+
+  <h2>Input Hafalan Mahasantri</h2>
+
+  <div class="form-container">
+  <select id="jenis">
+    <option value="Hafalan">Hafalan Baru</option>
+    <option value="Murojaah">Murojaah</option>
+  </select>
+
+  <input type="text" id="nama" placeholder="Nama Mahasantri" required />
+  <input type="text" id="surat" placeholder="Surat" required />
+  <input type="text" id="ayat" placeholder="Ayat" required />
+  <input type="date" id="tanggal" required />
+
+  <button onclick="simpanHafalan()">Simpan Data</button>
+</div>
+<div class="list-container">
+    <h3>Daftar Hafalan</h3>
+    <div id="hafalanList"></div>
+  </div>
+
+
+  <script>
+  document.addEventListener("DOMContentLoaded", tampilkanHafalan);
+
+  function simpanHafalan() {
+    const jenis = document.getElementById("jenis").value;
+    const nama = document.getElementById("nama").value;
+    const surat = document.getElementById("surat").value;
+    const ayat = document.getElementById("ayat").value;
+    const tanggal = document.getElementById("tanggal").value;
+
+    if (!nama || !surat || !ayat || !tanggal || !jenis) {
+      alert("Semua kolom harus diisi!");
+      return;
+    }
+
+    const dataBaru = { jenis, nama, surat, ayat, tanggal };
+    let hafalan = JSON.parse(localStorage.getItem("hafalan")) || [];
+    hafalan.push(dataBaru);
+    localStorage.setItem("hafalan", JSON.stringify(hafalan));
+
+    tampilkanHafalan();
+    document.getElementById("nama").value = "";
+    document.getElementById("surat").value = "";
+    document.getElementById("ayat").value = "";
+    document.getElementById("tanggal").value = "";
+  }
+
+  function tampilkanHafalan() {
+    const list = document.getElementById("hafalanList");
+    list.innerHTML = "";
+    const hafalan = JSON.parse(localStorage.getItem("hafalan")) || [];
+
+    hafalan.forEach((item, index) => {
+      const el = document.createElement("div");
+      el.className = "hafalan-item";
+      el.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <strong>${item.nama}</strong> - <em>${item.jenis}</em><br>
+            Surat: ${item.surat}<br>
+            Ayat: ${item.ayat}<br>
+            Tanggal: ${item.tanggal}
+          </div>
+          <button onclick="hapusHafalan(${index})" style="background:none; border:none; cursor:pointer;" title="Hapus">
+  <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="#d63031" viewBox="0 0 448 512">
+    <path d="M160 400c0 13.3 10.7 24 24 24s24-10.7 24-24V224c0-13.3-10.7-24-24-24s-24 10.7-24 24V400zm80 0c0 13.3 10.7 24 24 24s24-10.7 24-24V224c0-13.3-10.7-24-24-24s-24 10.7-24 24V400zM432 80h-82.4l-34-56.7C310.2 10.7 295.5 0 279 0H169c-16.5 0-31.2 10.7-36.6 23.3L98.4 80H16C7.2 80 0 87.2 0 96s7.2 16 16 16H32l20.5 339.2C53.8 481.6 91.4 512 137 512h174c45.6 0 83.2-30.4 84.5-60.8L416 112h16c8.8 0 16-7.2 16-16s-7.2-16-16-16zM171.1 32h105.8l19.2 32H151.9l19.2-32zM360.1 448H87.9L68.8 112h310.5l-19.2 336z"/>
+  </svg>
+</button>
+        </div>
+      `;
+      list.appendChild(el);
+    });
+  }
+
+  function hapusHafalan(index) {
+    let hafalan = JSON.parse(localStorage.getItem("hafalan")) || [];
+    hafalan.splice(index, 1); // hapus satu item berdasarkan index
+    localStorage.setItem("hafalan", JSON.stringify(hafalan));
+    tampilkanHafalan();
+  }
+</script>
+
+
+</body>
+</html>
