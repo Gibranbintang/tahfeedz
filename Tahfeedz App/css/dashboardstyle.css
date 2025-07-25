@@ -64,6 +64,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #052c44;
 }
 
 .main-content header h1 {
