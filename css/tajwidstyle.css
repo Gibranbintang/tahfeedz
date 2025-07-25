@@ -33,7 +33,7 @@ h1 {
 
 .card:hover {
   text-decoration: none !important;
-  background-color: #00e0b8;
+  background: #e3f1f8;
   color: #063247;
   transform: translateY(-5px);
 }
