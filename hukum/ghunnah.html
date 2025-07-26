@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hukum Tajwid</title>
+  <link rel="stylesheet" href="../css/tajwidstyle.css">
+</head>
+<body>
+  <h1>Hukum Tajwid</h1>
+  <div class="container">
+    <div class="card" onclick="openModal('Ghunnah', 'ghunnah dalam ilmu tajwid adalah hukum bacaan yang mewajibkan pembacaan dengung pada huruf mim (م) dan nun (ن) yang bertasydid (مّ dan نّ).')">
+      <div class="card-title">Ghunnah</div>
+      <div class="card-desc">Dengung</div>
+    </div>
+  </div>
+
+
+  <!-- Modal Box -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, text) {
+      document.getElementById("modal-title").textContent = title;
+      document.getElementById("modal-text").textContent = text;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>

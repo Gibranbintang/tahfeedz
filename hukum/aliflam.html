@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hukum Tajwid</title>
+  <link rel="stylesheet" href="../css/tajwidstyle.css">
+</head>
+<body>
+  <h1>Hukum Tajwid</h1>
+  <div class="container">
+    <div class="card" onclick="openModal('Alif Lam Qomariyah', 'Hukum bacaan ini muncul ketika alif lam sukun yang bertemu dengan salah satu huruf qomariah, yakni ba (ب), jim (ج), kha (ح), kho (خ), ‘ain (ع), ghoin (غ), fa (ف), qof (ق), kaf (ك), mim (م), wawu (و), hamzah (ء), ha (ه), dan ya (ي). Wajib dibaca jelas.')">
+      <div class="card-title">Alif Lam Qomariyah</div>
+      <div class="card-desc"></div>
+    </div>
+    <div class="card" onclick="openModal('Alif Lam Syamsiyah', 'Merupakan hukum dimana alif lam sukun yang bertemu dengan salah satu huruf syamsiyah, yaitu ta (ت), tsa (ث), dal (د), dzal (ذ), ra (ر), za (ز), sin (س), syin (ش), shod (ص), dhod (ض), tho (ط), dhlo (ظ), lam (ل), dan nun (ن). Dibaca tidak jelas atau melebur dengan huruf setelahnya (idgam).')">
+      <div class="card-title">Alif Lam Syamsiyah</div>
+      <div class="card-desc"></div>
+    </div>
+  </div>
+
+
+  <!-- Modal Box -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, text) {
+      document.getElementById("modal-title").textContent = title;
+      document.getElementById("modal-text").textContent = text;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>

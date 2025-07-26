@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hukum Tajwid</title>
+  <link rel="stylesheet" href="../css/tajwidstyle.css">
+</head>
+<body>
+  <h1>Hukum Tajwid</h1>
+  <div class="container">
+    <div class="card" onclick="openModal('Qolqolah', 'Qalqalah menurut bahasa artinya getaran atau pantulan. Sementara itu, dalam ilmu tajwid, qalqalah adalah getaran suara yang terjadi ketika membunyikan huruf-huruf tertentu dengan suara memantul keluar dari makharijul huruf (tempat keluarnya huruf) karena huruf tersebut mati (sukun), baik karena sukun yang asli, maupun karena diwaqafkan (diberhentikan). Agar kamu bisa mengingat kelima huruf ini dengan lebih mudah, kamu bisa menyebut huruf qalqalah sebagai “BaJu Di ToQo” (ب ج د ط ق).')">
+      <div class="card-title">Qolqolah</div>
+      <div class="card-desc"></div>
+    </div>
+    <div class="card" onclick="openModal('Qolqolah Sughra', 'Qalqalah sugra adalah qalqalah kecil, dimana dalam satu kata terdapat huruf qalqalah berharakat sukun asli, bukan karena waqaf.')">
+      <div class="card-title">Qolqolah Sughra</div>
+      <div class="card-desc"></div>
+    </div>
+    <div class="card" onclick="openModal('Qolqolah Kubra', 'Qalqalah kubra adalah qalqalah besar, dimana dalam satu kata terdapat huruf qalqalah yang berharakat hidup atau tasydid, lalu diwaqafkan di akhir kalimat.')">
+      <div class="card-title">Qolqolah Kubra</div>
+      <div class="card-desc"></div>
+    </div>
+  </div>
+
+
+  <!-- Modal Box -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, text) {
+      document.getElementById("modal-title").textContent = title;
+      document.getElementById("modal-text").textContent = text;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
