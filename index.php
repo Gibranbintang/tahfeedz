@@ -1,3 +1,19 @@
+<?php
+    $koneksi = mysqli_connect("localhost:3306","root","","webti");
+
+    if(!$koneksi)
+    {
+        die("koneksi Gagal!".mysqli_connect_error());
+    }
+    else{
+        echo "Koneksi berhasil!!!";
+    }
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,10 +28,10 @@
     <img src="Foto/logotahfeedz1.png" alt="Logo" class="logo" />
     <div class="logo"></div>
     <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="tentang.html">Tentang</a>
-      <a href="kontak.html">Kontak</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="index.php" class="active">Home</a>
+      <a href="tentang.php">Tentang</a>
+      <a href="kontak.php">Kontak</a>
+      <a href="dashboard.php">Dashboard</a>
     </nav>
   </header>
 
