@@ -100,11 +100,13 @@ header {
 }
 
 .footer {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem;
-  background-color: #052c44;
+text-align: center;
+padding: 1rem;
+background-color: #004d00;
+color: #ccc;
+position: fixed;
+width: 100%;
+bottom: 0;
 }
 
 .footer h2 {
@@ -191,11 +193,13 @@ body {
 
 /* Footer */
 .footer {
-  background-color: #021c25;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #ccc;
+text-align: center;
+padding: 1rem;
+background-color: #004d00;
+color: #ccc;
+position: fixed;
+width: 100%;
+bottom: 0;
 }
 
 /* Responsive */
@@ -260,9 +264,11 @@ button:hover {
 
 /* Footer */
 footer {
- background-color: #021c25;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #ccc;
+text-align: center;
+padding: 1rem;
+background-color: #004d00;
+color: #ccc;
+position: fixed;
+width: 100%;
+bottom: 0;
 }

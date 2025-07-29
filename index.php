@@ -1,5 +1,5 @@
 <?php
-    $koneksi = mysqli_connect("localhost:3306","root","","webti");
+    $koneksi = mysqli_connect("localhost:3306","root","","tahfeedz");
 
     if(!$koneksi)
     {
@@ -29,9 +29,9 @@
     <div class="logo"></div>
     <nav>
       <a href="index.php" class="active">Home</a>
-      <a href="tentang.php">Tentang</a>
+      <a href="tentang.html">Tentang</a>
       <a href="kontak.php">Kontak</a>
-      <a href="dashboard.php">Dashboard</a>
+      <a href="dashboard.html">Dashboard</a>
     </nav>
   </header>
 
