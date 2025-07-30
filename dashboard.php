@@ -33,7 +33,7 @@ $nama = $user_data['nama'] ?: 'User';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard Kursus - Tahfeedz</title>
+  <title>Dashboard - Tahfeedz</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     * {
@@ -520,7 +520,7 @@ $nama = $user_data['nama'] ?: 'User';
     <!-- Main Content -->
     <main class="main-content">
       <header class="header">
-        <h1>Dashboard Kursus</h1>
+        <h1>Dashboard</h1>
       </header>
       
       <!-- Stats Grid -->
