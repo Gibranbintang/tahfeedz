@@ -1,34 +1,41 @@
 <?php
-include 'fungsi.php';
 session_start();
+include 'fungsi.php';
 
-$error = ""; // Menyimpan pesan kesalahan
+$error = "";
+$success = "";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email']) && isset($_POST['password'])) {
-    $email = mysqli_real_escape_string($koneksi, $_POST['email']);
-    $password = $_POST['password'];
+// Jika user sudah login, redirect ke dashboard
+if (isLoggedIn()) {
+    header("Location: dashboard.php");
+    exit;
+}
 
-    $sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
-    $query = mysqli_query($koneksi, $sql);
-
-    if (mysqli_num_rows($query) === 1) {
-        $user = mysqli_fetch_assoc($query);
-
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['email'] = $user['email'];
-            header("Location: dashboard.html");
-            exit;
-        } else {
-            $error = "Password salah.";
-        }
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    
+    // Validasi input
+    if (empty($email) || empty($password)) {
+        $error = "Email dan password harus diisi.";
     } else {
-        $error = "Email tidak ditemukan.";
+        // Panggil fungsi login
+        $loginResult = loginUser($email, $password);
+        
+        if ($loginResult['status'] === 'success') {
+            $success = $loginResult['message'];
+            // Redirect dengan JavaScript setelah 1 detik
+            echo "<script>
+                setTimeout(function() {
+                    window.location.href = 'dashboard.php';
+                }, 1000);
+            </script>";
+        } else {
+            $error = $loginResult['message'];
+        }
     }
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="id">
@@ -40,11 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email']) && isset($_P
 </head>
 <body class="bg-gradient-to-br from-cyan-700 to-blue-900 min-h-screen flex items-center justify-center">
 
-  <?php if (!empty($error)): ?>
-        <p style="color:red;"><?php echo $error; ?></p>
-    <?php endif; ?>
-
-
   <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
     <!-- Logo dan Judul -->
     <div class="text-center mb-6">
@@ -55,14 +57,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email']) && isset($_P
       <p class="text-sm text-gray-500 mt-1">Silakan login untuk melanjutkan</p>
     </div>
 
+    <!-- Pesan Error dan Success -->
+    <?php if (!empty($error)): ?>
+      <div class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+        <?php echo htmlspecialchars($error); ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if (!empty($success)): ?>
+      <div class="mb-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+        <?php echo htmlspecialchars($success); ?>
+        <div class="text-sm mt-1">Mengalihkan ke dashboard...</div>
+      </div>
+    <?php endif; ?>
+
     <!-- Form Login -->
     <form method="POST" action="">
       <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-semibold mb-2">Email atau Username</label>
+        <label class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
         <input 
           type="email" 
           name="email"
-          placeholder="Email" 
+          value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>"
+          placeholder="Masukkan email Anda" 
           required 
           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
         >
@@ -92,9 +109,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email']) && isset($_P
       Belum punya akun? 
       <a href="register.php" class="text-cyan-600 hover:underline">Daftar di sini</a>
     </p>
+    
+    <!-- Link Kembali ke Home -->
+    <p class="text-center text-sm text-gray-500 mt-2">
+      <a href="index.html" class="text-gray-600 hover:underline">← Kembali ke Beranda</a>
+    </p>
   </div>
 
 </body>
 </html>
-
-
