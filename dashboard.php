@@ -513,6 +513,7 @@ $nama = $user_data['nama'] ?: 'User';
           <li>
             <a href="#"><i class="fas fa-sign-out-alt"></i> Keluar</a>
           </li>
+
         </ul>
       </nav>
     </aside>
