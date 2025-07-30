@@ -33,8 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav>
       <a href="index.html">Home</a>
       <a href="tentang.html">Tentang</a>
-      <a href="kontak.html" class="active">Kontak</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="kontak.php" class="active">Kontak</a>
     </nav>
   </header>
 
