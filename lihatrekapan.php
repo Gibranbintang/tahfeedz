@@ -177,12 +177,6 @@ $stats = mysqli_fetch_assoc($stats_result);
       <!-- Export Section -->
       <section class="export-section">
         <div class="export-buttons">
-          <button onclick="exportToPDF()" class="btn-export">
-            <i class="fas fa-file-pdf"></i> Export PDF
-          </button>
-          <button onclick="exportToExcel()" class="btn-export">
-            <i class="fas fa-file-excel"></i> Export Excel
-          </button>
           <button onclick="printReport()" class="btn-export">
             <i class="fas fa-print"></i> Print
           </button>

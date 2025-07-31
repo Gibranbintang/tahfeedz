@@ -140,11 +140,6 @@ while ($row = mysqli_fetch_assoc($upcoming_reminders_result)) {
           <h3><?php echo $current_streak; ?></h3>
           <p>Streak Hari</p>
         </div>
-        <div class="stat-card">
-          <i class="fas fa-star"></i>
-          <h3><?php echo $stats['total_poin']; ?></h3>
-          <p>Total Poin</p>
-        </div>
       </section>
 
       <!-- Quick Actions -->
@@ -239,7 +234,6 @@ while ($row = mysqli_fetch_assoc($upcoming_reminders_result)) {
                   <span><i class="fas fa-book"></i><?php echo htmlspecialchars($item['surat']); ?></span>
                   <span><i class="fas fa-list-ol"></i>Ayat: <?php echo htmlspecialchars($item['ayat']); ?></span>
                   <span><i class="fas fa-calendar"></i><?php echo date('d F Y', strtotime($item['tanggal'])); ?></span>
-                  <span><i class="fas fa-star"></i><?php echo $item['poin']; ?> poin</span>
                 </div>
               </div>
             <?php endforeach; ?>
