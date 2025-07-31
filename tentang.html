@@ -4,42 +4,604 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tentang | TAHFEEDZ</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: #2d3748;
+    }
+
+    /* Main Container */
+    .main-container {
+      min-height: 100vh;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .navbar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .navbar .logo {
+      height: 50px;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .navbar .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .navbar nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navbar nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .navbar nav a:hover::before {
+      left: 100%;
+    }
+
+    .navbar nav a:hover,
+    .navbar nav a.active {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 4rem 3rem;
+      position: relative;
+      z-index: 2;
+      min-height: calc(100vh - 200px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      max-width: 1200px;
+      width: 100%;
+      background: white;
+      padding: 3rem;
+      border-radius: 25px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(79, 172, 254, 0.1);
+    }
+
+    .about-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .about-container::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle, rgba(79, 172, 254, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .about-img {
+      flex: 1;
+      text-align: center;
+      animation: fadeInLeft 0.8s ease forwards;
+      opacity: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-img img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 20px;
+      filter: drop-shadow(0 15px 35px rgba(0,0,0,0.2));
+      transition: all 0.3s ease;
+    }
+
+    .about-img img:hover {
+      transform: scale(1.05) rotate(-2deg);
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+    }
+
+    .about-text {
+      flex: 1;
+      animation: fadeInRight 0.8s ease forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a5568;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      position: relative;
+    }
+
+    .about-text p:first-of-type {
+      font-size: 1.2rem;
+      color: #2d3748;
+      font-weight: 500;
+    }
+
+    .about-text p::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 0.7rem;
+      width: 4px;
+      height: 20px;
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .about-text p:hover::before {
+      opacity: 1;
+    }
+
+    /* Footer */
+    .footer {
+      background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .footer p {
+      font-size: 1rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* Animations */
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem;
+      }
+
+      .about-text h2 {
+        font-size: 2rem;
+      }
+
+      .about-section {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .navbar nav {
+        gap: 1rem;
+      }
+
+      .navbar nav a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .about-section {
+        padding: 1.5rem;
+      }
+
+      .about-container {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+
+      .about-text h2 {
+        font-size: 1.8rem;
+      }
+
+      .about-text p {
+        font-size: 1rem;
+      }
+
+      .footer {
+        padding: 1.5rem 1rem;
+      }
+
+      .footer p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-text h2 {
+        font-size: 1.5rem;
+      }
+
+      .about-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .navbar nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .about-section {
+        padding: 1rem;
+      }
+
+      .about-container {
+        padding: 1rem;
+        border-radius: 15px;
+      }
+    }
+
+    /* Additional Interactive Elements */
+    .about-text p:hover {
+      color: #2d3748;
+      transform: translateX(5px);
+      transition: all 0.3s ease;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Focus states for accessibility */
+    .navbar nav a:focus {
+      outline: 2px solid #4facfe;
+      outline-offset: 2px;
+    }
+
+    /* Loading animation for content */
+    .about-container {
+      animation: slideUp 0.8s ease forwards;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Subtle pulse animation for the main container */
+    .about-container:hover {
+      box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+      transition: box-shadow 0.3s ease;
+    }
+  </style>
 </head>
 <body>
-  <header class="navbar">
-    <img src="Foto/logotahfeedz1.png" alt="Logo" class="logo" />
-    <div class="logo"></div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="tentang.html" class="active">Tentang</a>
-      <a href="kontak.php">Kontak</a>
-    </nav>
-  </header>
+  <div class="main-container">
+    <header class="navbar">
+      <img src="Foto/logotahfeedz1.png" alt="Logo" class="logo" />
+      <div class="logo"></div>
+      <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="tentang.html" class="active"><i class="fas fa-info-circle"></i> Tentang</a>
+        <a href="kontak.php"><i class="fas fa-envelope"></i> Kontak</a>
+      </nav>
+    </header>
 
-  <section class="about-section">
-    <div class="about-container">
-      <div class="about-img">
-        <img src="data:image/jpeg;base64,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" alt="Tentang Kami">
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-img">
+          <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fteropongdaily.com%2Flelap-dalam-doa%2F&psig=AOvVaw3Fe49AgILk3b5N0QbTvydp&ust=1754031850170000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCMzvrE5o4DFQAAAAAdAAAAABAE" alt="Tentang Kami">
+        </div>
+        <div class="about-text">
+          <h2>Tentang Kami</h2>
+          <p>
+           Tahfeedz adalah aplikasi edukatif digital yang dirancang untuk membantu masyarakat umum dalam menghafal, memahami, dan mendalami Al-Qur'an dengan lebih mudah dan terstruktur. Dengan mengusung semangat "Menghafal Al-Qur'an untuk Semua", Tahfeedz hadir sebagai solusi cerdas untuk memfasilitasi perjalanan spiritual umat Muslim di era digital. 
+          </p>
+          <p>
+            Kami percaya bahwa setiap orang, tanpa batas usia dan latar belakang, memiliki potensi untuk dekat dengan Al-Qur'an. Oleh karena itu, Tahfeedz menyediakan berbagai fitur yang ramah pengguna, seperti:
+  Rekapan Hafalan,
+  Pengingat Hafalan & Jadwal Murojaah,
+  Adab dalam membaca al Al-Quran,
+  Tips & trik menghafalkan al Al-Quran.
+          </p>
+          <p>
+            Tahfeedz dikembangkan oleh tim yang terdiri dari para penghafal Al-Qur'an, pengembang teknologi, dan pendidik yang berkomitmen untuk membumikan Al-Qur'an melalui pendekatan modern tanpa menghilangkan nilai-nilai tradisi dan adab.
+          </p>
+          <p>
+            Kami berharap Tahfeedz dapat menjadi teman setia Anda dalam menghafal Al-Qur'an, kapan saja dan di mana saja. Mari jadikan Al-Qur'an sebagai bagian dari kehidupan sehari-hari.
+          </p>
+        </div>
       </div>
-      <div class="about-text">
-        <h2>Tentang Kami</h2>
-        <p>
-          TAHFEEDZ adalah platform digital untuk membantu santri dan pengajar dalam merekap hafalan, murojaan, dan informasi seputar Al-Qur'an di Pondok Pesantren Teknologi Informasi UNIMUS. 
-        </p>
-        <p>
-          Kami berkomitmen untuk menyediakan sistem yang efisien, modern, dan mudah diakses demi mendukung kegiatan tahfidz Al-Qur'an secara optimal.
-        </p>
-        <p>
-          Dengan teknologi, kami hadir untuk menyempurnakan proses pembelajaran dan dokumentasi hafalan secara akurat dan berkelanjutan.
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="footer">
-    <p>&copy; 2025 TAHFEEDZ UNIMUS. All rights reserved.</p>
-  </footer>
+    <footer class="footer">
+      <p>&copy; 2025 TAHFEEDZ UNIMUS. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Enhanced about page functionality
+    document.addEventListener("DOMContentLoaded", () => {
+      initializeAboutPage();
+      addScrollEffects();
+    });
+
+    function initializeAboutPage() {
+      // Add staggered animations to elements
+      const animatedElements = document.querySelectorAll('.about-img, .about-text');
+      animatedElements.forEach((element, index) => {
+        element.style.animationDelay = `${index * 0.3}s`;
+      });
+
+      // Add parallax effect to background
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const backgroundElement = document.querySelector('.main-container::before');
+        if (backgroundElement) {
+          backgroundElement.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+      });
+    }
+
+    function addScrollEffects() {
+      // Add scroll-triggered animations for paragraphs
+      const paragraphs = document.querySelectorAll('.about-text p');
+      
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      paragraphs.forEach((p, index) => {
+        p.style.opacity = '0';
+        p.style.transform = 'translateY(20px)';
+        p.style.transition = `all 0.6s ease ${index * 0.1}s`;
+        observer.observe(p);
+      });
+
+      // Add navbar scroll effect
+      let lastScrollTop = 0;
+      window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // Scrolling down
+          navbar.style.transform = 'translateY(-100%)';
+        } else {
+          // Scrolling up
+          navbar.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop;
+      });
+    }
+
+    // Add CSS animations
+    const style = document.createElement('style');
+    style.textContent = `
+      /* Smooth navbar transition */
+      .navbar {
+        transition: transform 0.3s ease;
+      }
+
+      /* Reading progress indicator */
+      .about-text::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+        z-index: 1000;
+        transition: width 0.3s ease;
+      }
+
+      /* Interactive hover effects for text */
+      .about-text p:hover {
+        padding-left: 1rem;
+        border-left: 4px solid #4facfe;
+        background: rgba(79, 172, 254, 0.05);
+        border-radius: 8px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      /* Subtle glow effect on container hover */
+      .about-container:hover {
+        box-shadow: 0 25px 70px rgba(79, 172, 254, 0.15);
+      }
+
+      /* Image zoom effect */
+      .about-img {
+        overflow: hidden;
+        border-radius: 20px;
+      }
+
+      /* Focus states for accessibility */
+      .navbar nav a:focus {
+        box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.3);
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Add reading progress indicator
+    window.addEventListener('scroll', () => {
+      const aboutSection = document.querySelector('.about-section');
+      const scrollProgress = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+      const progressBar = document.querySelector('.about-text::before');
+      
+      if (progressBar) {
+        progressBar.style.width = `${scrollProgress * 100}%`;
+      }
+    });
+
+    // Add typing animation for the title
+    const title = document.querySelector('.about-text h2');
+    const originalText = title.textContent;
+    title.textContent = '';
+    
+    let i = 0;
+    const typeWriter = () => {
+      if (i < originalText.length) {
+        title.textContent += originalText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    };
+    
+    // Start typing animation after a delay
+    setTimeout(typeWriter, 1000);
+  </script>
 </body>
 </html>
