@@ -3,38 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hukum Tajwid</title>
-  <link rel="stylesheet" href="css/tajwidstyle.css">
+  <title>Hukum Tajwid - Tahfeedz</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/tajwid-style.css" />
 </head>
 <body>
-  <h1>Hukum Tajwid</h1>
-  <div class="container">
-    <a href="hukum/nunmati.html" class="card">
-      <div class="card-title">NUN SUKUN ATAU TANWIN <br> </div>
-      <div class="card-desc">Selengkapnya</div>
-    </a>
-    <a href="hukum/mimsukun.html" class="card">
-      <div class="card-title">MIM SUKUN <br>  مْ  </div>
-      <div class="card-desc">Selengkapnya</div>
-    </a>
-    <a href="hukum/ghunnah.html" class="card">
-      <div class="card-title">GHUNNAH<br>   </div>
-      <div class="card-desc">Selengkapnya</div>
-    </a>
-    <a href="hukum/aliflam.html" class="card">
-      <div class="card-title">ALIF LAM TA'RIF<br> ( مْ  ) </div>
-      <div class="card-desc">Selengkapnya</div>
-    </a>
-    <a href="hukum/qolqolah.html" class="card">
-      <div class="card-title">QOLQOLAH <br> ( مْ  ) </div>
-      <div class="card-desc">Selengkapnya</div>
-    </a>
-    <a href="hukum/mad.html" class="card">
-      <div class="card-title">BANCAAN PANJANG ATAU MAD <br> ( مْ  ) </div>
-      <div class="card-desc">Selengkapnya</div>
-    </a>
+  <div class="main-container">
+    <!-- Navigation Back -->
+    <div class="nav-back">
+      <a href="dashboard.php">
+        <i class="fas fa-arrow-left"></i>
+        Kembali ke Dashboard
+      </a>
+    </div>
 
+    <!-- Header -->
+    <div class="header">
+      <h1><i class="fas fa-quran"></i> Hukum Tajwid</h1>
+      <p>Pelajari kaidah-kaidah tajwid untuk membaca Al-Quran dengan benar dan indah</p>
+    </div>
 
+    <!-- Content Container -->
+    <div class="container">
+      <a href="hukum/nunmati.html" class="card">
+        <div class="card-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <div class="card-title">NUN SUKUN ATAU TANWIN</div>
+        <div class="card-desc">Pelajari hukum bacaan nun sukun dan tanwin dengan 5 pembagiannya</div>
+      </a>
+
+      <a href="hukum/mimsukun.html" class="card">
+        <div class="card-icon">
+          <i class="fas fa-microphone"></i>
+        </div>
+        <div class="card-title">MIM SUKUN<br>مْ</div>
+        <div class="card-desc">Memahami hukum bacaan mim sukun dengan 3 kategorinya</div>
+      </a>
+
+      <a href="hukum/ghunnah.html" class="card">
+        <div class="card-icon">
+          <i class="fas fa-volume-up"></i>
+        </div>
+        <div class="card-title">GHUNNAH</div>
+        <div class="card-desc">Mempelajari bacaan dengung dalam ilmu tajwid</div>
+      </a>
+
+      <a href="hukum/aliflam.html" class="card">
+        <div class="card-icon">
+          <i class="fas fa-sun"></i>
+        </div>
+        <div class="card-title">ALIF LAM TA'RIF<br>ال</div>
+        <div class="card-desc">Mengenal hukum alif lam syamsiyah dan qomariyah</div>
+      </a>
+
+      <a href="hukum/qolqolah.html" class="card">
+        <div class="card-icon">
+          <i class="fas fa-wave-square"></i>
+        </div>
+        <div class="card-title">QOLQOLAH<br>ق ط ب ج د</div>
+        <div class="card-desc">Memahami getaran suara pada huruf-huruf qolqolah</div>
+      </a>
+
+      <a href="hukum/mad.html" class="card">
+        <div class="card-icon">
+          <i class="fas fa-arrows-alt-h"></i>
+        </div>
+        <div class="card-title">BACAAN PANJANG ATAU MAD</div>
+        <div class="card-desc">Menguasai berbagai jenis bacaan panjang dalam Al-Quran</div>
+      </a>
+    </div>
+  </div>
 
   <!-- Modal Box -->
   <div id="modal" class="modal">
@@ -62,6 +101,21 @@
         closeModal();
       }
     }
+
+    // Add escape key to close modal
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Smooth scroll animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+      });
+    });
   </script>
 </body>
 </html>

@@ -210,7 +210,7 @@ while ($row = mysqli_fetch_assoc($upcoming_reminders_result)) {
             <h3><i class="fas fa-heart"></i>Adab Membaca Al-Quran</h3>
             <p>Memahami etika dan tata cara yang baik dalam membaca kitab suci Al-Quran</p>
           </a>
-          <a href="#" class="card resource" onclick="trackClick('tips')">
+          <a href="tips.html" class="card resource" onclick="trackClick('tips')">
             <h3><i class="fas fa-lightbulb"></i>Tips & Trik Menghafal</h3>
             <p>Kumpulan tips dan metode efektif untuk mempercepat dan memperkuat hafalan</p>
           </a>
