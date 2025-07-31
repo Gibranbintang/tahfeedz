@@ -43,14 +43,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login | TAHFEEDZ</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/auth-style.css">
 </head>
 <body class="bg-gradient-to-br from-cyan-700 to-blue-900 min-h-screen flex items-center justify-center">
 
   <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
     <!-- Logo dan Judul -->
     <div class="text-center mb-6">
-      <img src="logotahfeedz1.png" alt="TAHFEEDZ Logo" class="mx-auto w-16 h-16 mb-2" />
       <h1 class="text-2xl font-bold text-gray-800">
         Masuk ke <span class="text-cyan-600">TAHFEEDZ</span>
       </h1>
